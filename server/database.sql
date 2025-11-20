@@ -1,7 +1,9 @@
 CREATE DATABASE languageapp;
 
-CREATE TABLE profiles(
-	profile_id SERIAL PRIMARY KEY,
-	native_language VARCHAR(50),
-	target_language VARCHAR(50)
+CREATE TABLE users (
+	user_id SERIAL PRIMARY KEY,
+	email TEXT UNIQUE NOT NULL,
+	password_hash TEXT NOT NULL,
+	name TEXT,
+	created_at TIMESTAMP DEFAULT NOW()
 );
