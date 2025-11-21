@@ -1,0 +1,181 @@
+{
+  "info": {
+    "_postman_id": "f6d8fb3c-838e-4e9b-a51e-fec42d344957",
+    "name": "Languageapp",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "id": "41989976-8a29-4db4-9845-442bc687c7e2",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"xologa@gmail.com\",\n    \"password\": \"hola\",\n    \"name\": \"juan\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/auth/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Login",
+          "id": "5dc26ebb-ff6f-42b4-857e-7aa72f18d8e1",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"xologa@gmail.com\",\n    \"password\": \"hola\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          }
+        }
+      ],
+      "id": "6bb2b59f-29c8-44e3-86f5-22f8239a8330"
+    },
+    {
+      "name": "User Languages",
+      "item": [
+        {
+          "name": "All native and target from user",
+          "id": "03ca5f03-02e1-49e8-bf02-e1eb7f3b223b",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:5000/userLanguages/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "userLanguages",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Add target to user",
+          "id": "3bf53af3-9e0a-44dc-bff2-ef9319512988",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"language_id\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/userLanguages/1/add/target",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "userLanguages",
+                "1",
+                "add",
+                "target"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Add native to user",
+          "id": "d8ec1933-e454-4187-b58f-1e91141cb285",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"language_id\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/userLanguages/1/add/native",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "userLanguages",
+                "1",
+                "add",
+                "native"
+              ]
+            }
+          }
+        }
+      ],
+      "id": "edbbd48a-feef-4cdb-ae36-73fda727dd83"
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "All users",
+          "id": "bc26a24a-9f8b-4cf7-9113-7c8008684082",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:5000/users/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "users",
+                ""
+              ]
+            }
+          }
+        }
+      ],
+      "id": "ea7a1cc6-0a61-45fa-8ba9-4a8f00adad0d"
+    }
+  ]
+}

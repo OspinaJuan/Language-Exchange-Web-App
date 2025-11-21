@@ -1,9 +1,11 @@
+// routes/users.js
 const express = require("express");
 const router = express.Router();
 const pool = require("../db");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
+// get all users
 router.get("/", async (req, res) => {
 	try {
 		const users = await pool.query(
