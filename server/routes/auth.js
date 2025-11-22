@@ -32,7 +32,7 @@ router.post("/register", async (req, res) => {
 		res.json(result.rows[0]);
 	} catch (err) {
 		console.error(err);
-		res.status(500).json({ error: "Server error" });
+		return res.status(500).json({ error: "Server error" });
 	}
 });
 
@@ -70,7 +70,7 @@ router.post("/login", async (req, res) => {
 
 	} catch (err) {
 		console.error(err);
-		res.status(500).json( { error: "Server error" });
+		return res.status(500).json( { error: "Server error" });
 	}
 });
 

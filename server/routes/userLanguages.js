@@ -7,7 +7,6 @@ const jwt = require("jsonwebtoken");
 // add native language to a user
 router.post("/:userId/add/native", async (req, res) => {
 	try {
-		console.log(req.body);
 		const { userId } = req.params;
 		const { language_id } = req.body;
 
@@ -19,7 +18,7 @@ router.post("/:userId/add/native", async (req, res) => {
 		res.json({ message: "Native language added!"});		
 	} catch (err) {
 		console.log(err);
-		res.status(500).json({ error: "Server error" });
+		return res.status(500).json({ error: "Server error" });
 	}
 });
 
@@ -37,7 +36,7 @@ router.post('/:userId/add/target', async (req, res) => {
 	  res.json({ message: "Target language added" });
 	} catch (err) {
 		console.log(err);
-		res.status(500).json({ error: "Server error" });
+		return res.status(500).json({ error: "Server error" });
 	}
 
 });
@@ -57,14 +56,51 @@ router.get("/:userId", async (req, res) => {
 		);
 
 		res.json({
-			"native": native,
-			"target": target
+			"native": native.rows,
+			"target": target.rows
 		});
 	} catch (err) {
 		console.log(err);
-		res.status(500).json({ error: "Server error" });
+		return res.status(500).json({ error: "Server error" });
 	}
 
+});
+
+// delete native language from user
+router.delete("/:userId/delete/native", async (req, res) => {
+	try {
+		const { userId } = req.params;
+		const { language_id } = req.body;
+
+		pool.query(
+			"DELETE FROM user_native_languages WHERE user_id = $1 AND language_id = $2",
+			[userId, language_id]
+		);
+
+	  res.json({ message: "Native language deleted" });
+
+	} catch (err) {
+		console.log(err);
+		return res.status(500).json({ error: "Server error" });
+	}
+});
+
+// delete target language from user
+router.delete("/:userId/delete/target", async (req, res) => {
+	try {
+		const { userId } = req.params;
+		const { language_id } = req.body;
+
+		pool.query(
+			"DELETE FROM user_target_languages WHERE user_id = $1 AND language_id = $2",
+			[userId, language_id]
+		);
+
+		res.json({ message: "Target language deleted" });
+	} catch (err) {
+		console.log(err);
+		return res.status(500).json({ error: "Server error" });
+	}
 });
 
 module.exports = router;
